@@ -1,0 +1,6 @@
+node_modules
+package*.json
+LICENSE
+README.md
+.prettierrc.json
+.prettier-ignore
