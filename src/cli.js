@@ -1,7 +1,7 @@
 const { clear } = require('./commands/');
 
 module.exports = function cli(args) {
-    this.version = 'Version 1.0.0';
+    this.version = 'Version 0.0.1-beta';
 
     const commands = [
         {

@@ -1,12 +1,18 @@
 {
   "name": "@yazilimcimekani/mdoctor",
-  "version": "1.0.0",
+  "version": "0.0.1-beta",
   "description": "Your CLI Markdown Doctor",
   "main": "src/cli.js",
   "bin": {
-    "@yazilimcimekani/mdoctor": "bin/mdoctor",
+    "markdown-doctor": "bin/mdoctor",
     "mdoctor": "bin/mdoctor"
   },
+  "files": [
+    "bin",
+    "src",
+    "src/commands",
+    "src/cli.js"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +31,11 @@
     "markdown",
     "markdown-doctor"
   ],
-  "author": "Yazılımcı Mekanı Dev Team",
+  "author": {
+    "name": "Yazılımcı Mekanı Dev Team",
+    "email": "github@yazilimcimekani.com",
+    "url": "https://yazilimcimekani.github.io"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/yazilimcimekani/mdoctor/issues"
