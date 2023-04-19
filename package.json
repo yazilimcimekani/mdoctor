@@ -1,0 +1,37 @@
+{
+  "name": "@yazilimcimekani/mdoctor",
+  "version": "1.0.0",
+  "description": "Your CLI Markdown Doctor",
+  "main": "src/cli.js",
+  "bin": {
+    "@yazilimcimekani/mdoctor": "bin/mdoctor",
+    "mdoctor": "bin/mdoctor"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazilimcimekani/mdoctor.git"
+  },
+  "keywords": [
+    "cli",
+    "mdoctor",
+    "template",
+    "markdown",
+    "markdown-doctor"
+  ],
+  "author": "Yazılımcı Mekanı Dev Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yazilimcimekani/mdoctor/issues"
+  },
+  "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
+  "devDependencies": {
+    "prettier": "2.8.7"
+  }
+}
