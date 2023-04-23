@@ -1,5 +1,5 @@
 {
-  "name": "@yazilimcimekani/mdoctor",
+  "name": "mdoctor",
   "version": "0.0.2-beta",
   "description": "Your CLI Markdown Doctor",
   "main": "bin/mdoctor",
