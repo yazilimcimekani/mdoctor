@@ -14,7 +14,8 @@
     "src/cli.js"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "format:check": "prettier --check .",
