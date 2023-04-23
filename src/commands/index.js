@@ -1,3 +1,3 @@
 module.exports = {
-    clear: require('../commands/clear')
+    version: require('../commands/version')
 };

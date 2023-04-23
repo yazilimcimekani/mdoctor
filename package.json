@@ -1,8 +1,8 @@
 {
-  "name": "@yazilimcimekani/mdoctor",
-  "version": "0.0.1-beta",
+  "name": "mdoctor",
+  "version": "0.0.2-beta",
   "description": "Your CLI Markdown Doctor",
-  "main": "src/cli.js",
+  "main": "bin/mdoctor",
   "bin": {
     "markdown-doctor": "bin/mdoctor",
     "mdoctor": "bin/mdoctor"

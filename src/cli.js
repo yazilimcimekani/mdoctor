@@ -1,13 +1,11 @@
-const { clear } = require('./commands/');
+const { version } = require('./commands/');
 
-module.exports = function cli(args) {
-    this.version = 'Version 0.0.1-beta';
-
+function cli(args) {
     const commands = [
         {
-            name: 'clear',
-            description: 'Clears the console',
-            run: clear
+            name: 'version',
+            description: 'Shows the version',
+            run: version
         }
     ];
     let userArgs = args.slice(2);
@@ -15,9 +13,11 @@ module.exports = function cli(args) {
         return command.name === userArgs[0];
     })[0];
 
-    if (!usedCommand)
-        return console.log(
-            `Can't find command with name ${userArgs[0] ? userArgs[0] : 'null'}`
-        );
+    if (!usedCommand && (userArgs[0] == '--version' || userArgs[0] == '-v'))
+        return commands[0].run();
+    else if (!usedCommand) return;
+
     usedCommand.run();
-};
+}
+
+module.exports = cli;
