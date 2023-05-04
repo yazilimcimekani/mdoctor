@@ -5,5 +5,6 @@ export default {
     run: () => {
         let version = 'v0.1.0-alpha';
         console.log(version);
+        process.exit(0);
     }
 };
