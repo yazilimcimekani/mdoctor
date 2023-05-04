@@ -3,9 +3,10 @@
   "version": "0.0.2-beta",
   "description": "Your CLI Markdown Doctor",
   "main": "bin/mdoctor",
+  "type": "module",
   "bin": {
-    "markdown-doctor": "bin/mdoctor",
-    "mdoctor": "bin/mdoctor"
+    "markdown-doctor": "bin/mdoctor.js",
+    "mdoctor": "bin/mdoctor.js"
   },
   "files": [
     "bin",
