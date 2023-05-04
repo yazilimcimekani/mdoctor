@@ -1,23 +1,28 @@
-const { version } = require('./commands/');
+import fsp from 'fs/promises';
+const commands = [];
 
-function cli(args) {
-    const commands = [
-        {
-            name: 'version',
-            description: 'Shows the version',
-            run: version
-        }
-    ];
-    let userArgs = args.slice(2);
-    let usedCommand = commands.filter(function (command) {
-        return command.name === userArgs[0];
-    })[0];
+async function cli(args) {
+    await fsp
+        .readdir('src/commands', { encoding: 'utf-8' })
+        .then(async (file) => {
+            file.filter((f) => f.endsWith('.js')).forEach(async (f) => {
+                const command = await import(`./commands/${f}`);
+                commands.push(command.default);
 
-    if (!usedCommand && (userArgs[0] == '--version' || userArgs[0] == '-v'))
-        return commands[0].run();
-    else if (!usedCommand) return;
+                // Check command
+                let userArgs = args.slice(2);
+                let usedCommand = commands.filter(function (command) {
+                    return command.data.name === userArgs[0];
+                })[0];
 
-    usedCommand.run();
+                // Run the command if it's available
+                if (!usedCommand) return;
+                usedCommand.run();
+            });
+        })
+        .catch(async (e) => {
+            console.log(e);
+        });
 }
 
-module.exports = cli;
+export default cli;
