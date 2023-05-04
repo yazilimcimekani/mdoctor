@@ -16,7 +16,7 @@ async function cli(args) {
                 })[0];
 
                 // Run the command if it's available
-                if (!usedCommand) return;
+                if (!usedCommand) return process.exit(1);
                 usedCommand.run();
             });
         })
