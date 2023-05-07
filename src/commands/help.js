@@ -1,22 +1,38 @@
+import chalk from 'chalk';
+import getVersion from '../helpers/getVersion.js';
+
 export default {
     data: {
         name: 'help'
     },
     run: () => {
         let links = {
-            docs: 'https://github.com/yazilimcimekani/mdoctor#readme'
+            _documentation: 'https://github.com/yazilimcimekani/mdoctor#readme'
+        };
+        let texts = {
+            _heading: `${chalk.bold('MDoctor Help Menu')}`,
+            _version: `Version: ${chalk.yellow(getVersion())}`,
+            _commandWarning: `All commands are prefixed with ${chalk.green(
+                'mdoctor'
+            )}.`,
+            _documentation: `Please see the ${chalk.yellow(
+                'documentation'
+            )} for more details\n${links._documentation}`,
+            help: 'Shows this menu',
+            version: 'Shows the app version'
         };
 
-        let help = `MDoctor Help Menu
-        
-        help: Shows this menu
-        version: Shows the app version
-        `;
+        let helpMenu = `${texts._heading}
+${texts._version}
 
-        console.log(help);
-        console.log(
-            `Please see the documentation for more details\n${links.docs}`
-        );
+${texts._commandWarning}
+
+        help: ${texts.help}
+        version: ${texts.version}
+        
+${texts._documentation}`;
+
+        console.log(helpMenu);
         process.exit(0);
     }
 };
