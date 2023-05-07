@@ -45,5 +45,8 @@
   "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
   "devDependencies": {
     "prettier": "2.8.7"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0"
   }
 }
