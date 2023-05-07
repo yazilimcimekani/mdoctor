@@ -31,7 +31,11 @@
     "mdoctor",
     "template",
     "markdown",
-    "markdown-doctor"
+    "markdown-doctor",
+    "md",
+    "markdown-guide",
+    "markdown-helper",
+    "markdown-cli"    
   ],
   "author": {
     "name": "Yazılımcı Mekanı Dev Team",
