@@ -9,7 +9,7 @@
     "mdoctor": "bin/mdoctor.js"
   },
   "files": [
-    "bin",
+    "bin/mdoctor.js",
     "src",
     "src/commands",
     "src/cli.js"
