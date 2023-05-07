@@ -1,12 +1,11 @@
-import pkg from '../../package.json' assert { type: 'json' };
+import getVersion from '../helpers/getVersion.js';
 
 export default {
     data: {
         name: 'version'
     },
     run: () => {
-        let version = 'v' + pkg.version;
-        console.log(version);
+        console.log(getVersion());
         process.exit(0);
     }
 };
