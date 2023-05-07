@@ -9,14 +9,14 @@
     "mdoctor": "bin/mdoctor.js"
   },
   "files": [
-    "bin",
+    "bin/mdoctor.js",
     "src",
     "src/commands",
     "src/cli.js"
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "format:check": "prettier --check .",
@@ -31,7 +31,11 @@
     "mdoctor",
     "template",
     "markdown",
-    "markdown-doctor"
+    "markdown-doctor",
+    "md",
+    "markdown-guide",
+    "markdown-helper",
+    "markdown-cli"    
   ],
   "author": {
     "name": "Yazılımcı Mekanı Dev Team",
@@ -45,5 +49,8 @@
   "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
   "devDependencies": {
     "prettier": "2.8.7"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0"
   }
 }

@@ -1,9 +1,11 @@
+import getVersion from '../helpers/getVersion.js';
+
 export default {
     data: {
         name: 'version'
     },
     run: () => {
-        let version = 'v0.1.0-alpha';
-        console.log(version);
+        console.log(getVersion());
+        process.exit(0);
     }
 };
