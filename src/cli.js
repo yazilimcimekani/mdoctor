@@ -1,24 +1,25 @@
 import fsp from 'fs/promises';
-const commands = [];
 
 async function cli(args) {
-    await fsp
-        .readdir('src/commands', { encoding: 'utf-8' })
+    args = args.slice(2);
+    if (args.length == 0) return;
+    const cliCommands = [];
+
+    fsp.readdir('src/commands', { encoding: 'utf-8' })
         .then(async (file) => {
-            file.filter((f) => f.endsWith('.js')).forEach(async (f) => {
-                const command = await import(`./commands/${f}`);
-                commands.push(command.default);
+            for (const cmd of file.filter((f) => f.endsWith('.js'))) {
+                let importedCommand = await import(`./commands/${cmd}`);
+                cliCommands.push(importedCommand.default);
+            }
+            let cmdName = args[0];
+            let command = cliCommands.filter((f) => f.data.name == cmdName);
 
-                // Check command
-                let userArgs = args.slice(2);
-                let usedCommand = commands.filter(function (command) {
-                    return command.data.name === userArgs[0];
-                })[0];
-
-                // Run the command if it's available
-                if (!usedCommand) return process.exit(1);
-                usedCommand.run();
-            });
+            if (command.length == 0) {
+                console.log(`'${cmdName}' is not a MDoctor command`);
+                process.exit(1);
+            }
+            const usedCommand = command[0];
+            usedCommand.run();
         })
         .catch(async (e) => {
             console.log(e);
