@@ -1,6 +1,6 @@
 {
   "name": "mdoctor",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "Your CLI Markdown Doctor",
   "main": "bin/mdoctor",
   "type": "module",
