@@ -44,6 +44,7 @@
   },
   "license": "Apache-2.0",
   "bugs": {
+    "email": "github@yazilimcimekani.com",
     "url": "https://github.com/yazilimcimekani/mdoctor/issues"
   },
   "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
