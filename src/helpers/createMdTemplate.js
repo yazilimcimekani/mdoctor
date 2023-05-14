@@ -13,7 +13,7 @@ ${codeBlock('shell', [clone_url])}
 
 ### Install
 
-${codeBlock('shell', ['git clone '+ install_command])}
+${codeBlock('shell', ['git clone ' + install_command])}
 `;
 }
 
