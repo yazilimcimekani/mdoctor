@@ -35,7 +35,7 @@
     "md",
     "markdown-guide",
     "markdown-helper",
-    "markdown-cli"    
+    "markdown-cli"
   ],
   "author": {
     "name": "Yazılımcı Mekanı Dev Team",
@@ -52,6 +52,7 @@
     "prettier": "2.8.7"
   },
   "dependencies": {
-    "chalk": "^5.2.0"
+    "chalk": "^5.2.0",
+    "inquirer": "^9.2.3"
   }
 }
