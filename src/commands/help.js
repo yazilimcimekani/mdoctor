@@ -19,7 +19,8 @@ export default {
                 'documentation'
             )} for more details\n${links._documentation}`,
             help: 'Shows this menu',
-            version: 'Shows the app version'
+            version: 'Shows the app version',
+            create: 'Creates a README.md file for your project'
         };
 
         let helpMenu = `${texts._heading}
@@ -29,6 +30,7 @@ ${texts._commandWarning}
 
         help: ${texts.help}
         version: ${texts.version}
+        create: ${texts.create}
         
 ${texts._documentation}`;
 
