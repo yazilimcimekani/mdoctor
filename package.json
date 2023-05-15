@@ -1,6 +1,6 @@
 {
   "name": "mdoctor",
-  "version": "0.1.0-alpha",
+  "version": "1.0.0",
   "description": "Your CLI Markdown Doctor",
   "main": "bin/mdoctor",
   "type": "module",
@@ -20,7 +20,8 @@
   },
   "scripts": {
     "format:check": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,7 @@
     "md",
     "markdown-guide",
     "markdown-helper",
-    "markdown-cli"    
+    "markdown-cli"
   ],
   "author": {
     "name": "Yazılımcı Mekanı Dev Team",
@@ -44,13 +45,18 @@
   },
   "license": "Apache-2.0",
   "bugs": {
+    "email": "github@yazilimcimekani.com",
     "url": "https://github.com/yazilimcimekani/mdoctor/issues"
   },
   "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
   "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-security": "^1.7.1",
     "prettier": "2.8.7"
   },
   "dependencies": {
-    "chalk": "^5.2.0"
+    "chalk": "^5.2.0",
+    "inquirer": "^9.2.3"
   }
 }
