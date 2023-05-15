@@ -20,7 +20,8 @@
   },
   "scripts": {
     "format:check": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
   },
   "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
   "devDependencies": {
+    "eslint": "^8.40.0",
     "prettier": "2.8.7"
   },
   "dependencies": {
