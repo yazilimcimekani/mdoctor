@@ -6,7 +6,8 @@ import createMdTemplate from '../helpers/createMdTemplate.js';
 
 export default {
     data: {
-        name: 'create'
+        name: 'create',
+        description: 'Creates a README.md file for your project'
     },
     run: async () => {
         let defaultFileName = `README`;
