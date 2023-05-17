@@ -2,7 +2,8 @@ import chalk from 'chalk';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import path from 'path';
-import createMdTemplate from '../helpers/createMdTemplate.js';
+import createMdFile from '../helpers/createMdFile.js';
+import Templates from '../templates/index.js';
 
 export default {
     data: {
@@ -71,26 +72,28 @@ export default {
         await inquirer
             .prompt(questions)
             .then((answer) => {
-                let content = createMdTemplate(
+                let content = Templates.Default(
                     answer.name.trim(),
                     answer.short_description.trim(),
                     answer.clone_url.trim(),
                     answer.install_command.trim()
                 );
 
-                /*  Disabled eslint security check because we are using ./ to write to the current directory */
+                createMdFile(defaultFileName, content)
+                    .then((res) => {
+                        if (res.status === 'OK') {
+                            let successMsg = `${chalk.bold(
+                                defaultFileName + '.md'
+                            )} created successfully!`;
 
-                // eslint-disable-next-line
-                fs.writeFileSync(filePath(defaultFileName), content, (err) => {
-                    console.log(err);
-                    process.exit(1);
-                });
-
-                let successMsg = `${chalk.bold(
-                    defaultFileName + '.md'
-                )} created successfully!`;
-                console.log(successMsg);
-                process.exit(0);
+                            console.log(successMsg);
+                            process.exit(0);
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        process.exit(1);
+                    });
             })
             .catch((err) => {
                 console.log(err);
