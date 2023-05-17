@@ -46,10 +46,10 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "email": "github@yazilimcimekani.com",
-    "url": "https://github.com/yazilimcimekani/mdoctor/issues"
+    "url" : "https://github.com/yazilimcimekani/mdoctor/issues",
+    "email" : "github@yazilimcimekani.com"
   },
-  "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
+  "homepage": "https://github.com/yazilimcimekani/mdoctor",
   "devDependencies": {
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.21.8",

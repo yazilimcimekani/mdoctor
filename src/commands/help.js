@@ -7,7 +7,7 @@ export default {
     },
     run: () => {
         let links = {
-            _documentation: 'https://github.com/yazilimcimekani/mdoctor#readme'
+            _documentation: 'https://github.com/yazilimcimekani/mdoctor'
         };
         let texts = {
             _heading: `${chalk.bold('MDoctor Help Menu')}`,
