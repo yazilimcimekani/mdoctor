@@ -46,8 +46,8 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url" : "https://github.com/yazilimcimekani/mdoctor/issues",
-    "email" : "github@yazilimcimekani.com"
+    "url": "https://github.com/yazilimcimekani/mdoctor/issues",
+    "email": "github@yazilimcimekani.com"
   },
   "homepage": "https://github.com/yazilimcimekani/mdoctor",
   "devDependencies": {
