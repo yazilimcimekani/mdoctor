@@ -67,7 +67,7 @@ export default {
                         }
                     });
             })
-            .catch(() => {});
+            .catch(() => {}); // If can't access means there is no file and we can continue
 
         await inquirer
             .prompt(questions)
@@ -78,7 +78,9 @@ export default {
                     answer.clone_url.trim(),
                     answer.install_command.trim()
                 );
+                // Created the content by using the Default template
 
+                // Dynamically create a file with the given name and content
                 createMdFile(defaultFileName, content)
                     .then((res) => {
                         if (res.status === 'OK') {
@@ -91,11 +93,13 @@ export default {
                         }
                     })
                     .catch((err) => {
+                        // Something went wrong while creating the file
                         console.log(err);
                         process.exit(1);
                     });
             })
             .catch((err) => {
+                // Something went wrong while asking questions
                 console.log(err);
                 process.exit(1);
             });
