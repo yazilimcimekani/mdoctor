@@ -11,7 +11,7 @@ export default {
     },
     run: async () => {
         let defaultFileName = `README`;
-        let filePath = (fileName) => path.join('./', fileName + '.md');
+        let filePath = (fileName) => path.join(process.cwd(), fileName + '.md');
 
         const questions = [
             {
