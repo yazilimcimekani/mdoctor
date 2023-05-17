@@ -9,6 +9,8 @@ function createMdFile(filename, content) {
             reject({ status: 'FILENAME_ERR', message: 'Filename is required' });
         else if (!content)
             reject({ status: 'CONTENT_ERR', message: 'Content is required' });
+
+        // eslint-disable-next-line
         fs.writeFileSync(filePath(filename), content, (err) => {
             reject(err);
             process.exit(1);
