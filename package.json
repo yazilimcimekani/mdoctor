@@ -21,7 +21,8 @@
   "scripts": {
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -45,14 +46,20 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "email": "github@yazilimcimekani.com",
-    "url": "https://github.com/yazilimcimekani/mdoctor/issues"
+    "url": "https://github.com/yazilimcimekani/mdoctor/issues",
+    "email": "github@yazilimcimekani.com"
   },
-  "homepage": "https://github.com/yazilimcimekani/mdoctor#readme",
+  "homepage": "https://github.com/yazilimcimekani/mdoctor",
   "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
+    "@babel/preset-env": "^7.21.5",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-security": "^1.7.1",
+    "jest": "^29.5.0",
     "prettier": "2.8.7"
   },
   "dependencies": {

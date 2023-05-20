@@ -2,15 +2,17 @@ import chalk from 'chalk';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import path from 'path';
-import createMdTemplate from '../helpers/createMdTemplate.js';
+import createMdFile from '../helpers/createMdFile.js';
+import Templates from '../templates/index.js';
 
 export default {
     data: {
-        name: 'create'
+        name: 'create',
+        description: 'Creates a README.md file for your project'
     },
     run: async () => {
         let defaultFileName = `README`;
-        let filePath = (fileName) => path.join('./', fileName + '.md');
+        let filePath = (fileName) => path.join(process.cwd(), fileName + '.md');
 
         const questions = [
             {
@@ -65,33 +67,39 @@ export default {
                         }
                     });
             })
-            .catch(() => {});
+            .catch(() => {}); // If can't access means there is no file and we can continue
 
         await inquirer
             .prompt(questions)
             .then((answer) => {
-                let content = createMdTemplate(
+                let content = Templates.Default(
                     answer.name.trim(),
                     answer.short_description.trim(),
                     answer.clone_url.trim(),
                     answer.install_command.trim()
                 );
+                // Created the content by using the Default template
 
-                /*  Disabled eslint security check because we are using ./ to write to the current directory */
+                // Dynamically create a file with the given name and content
+                createMdFile(defaultFileName, content)
+                    .then((res) => {
+                        if (res.status === 'OK') {
+                            let successMsg = `${chalk.bold(
+                                defaultFileName + '.md'
+                            )} created successfully!`;
 
-                // eslint-disable-next-line
-                fs.writeFileSync(filePath(defaultFileName), content, (err) => {
-                    console.log(err);
-                    process.exit(1);
-                });
-
-                let successMsg = `${chalk.bold(
-                    defaultFileName + '.md'
-                )} created successfully!`;
-                console.log(successMsg);
-                process.exit(0);
+                            console.log(successMsg);
+                            process.exit(0);
+                        }
+                    })
+                    .catch((err) => {
+                        // Something went wrong while creating the file
+                        console.log(err);
+                        process.exit(1);
+                    });
             })
             .catch((err) => {
+                // Something went wrong while asking questions
                 console.log(err);
                 process.exit(1);
             });

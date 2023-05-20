@@ -1,13 +1,15 @@
 import chalk from 'chalk';
 import getVersion from '../helpers/getVersion.js';
+import commands from '../commands.js';
 
 export default {
     data: {
-        name: 'help'
+        name: 'help',
+        description: 'Shows the help menu'
     },
     run: () => {
         let links = {
-            _documentation: 'https://github.com/yazilimcimekani/mdoctor#readme'
+            _documentation: 'https://github.com/yazilimcimekani/mdoctor'
         };
         let texts = {
             _heading: `${chalk.bold('MDoctor Help Menu')}`,
@@ -17,21 +19,20 @@ export default {
             )}.`,
             _documentation: `Please see the ${chalk.yellow(
                 'documentation'
-            )} for more details\n${links._documentation}`,
-            help: 'Shows this menu',
-            version: 'Shows the app version',
-            create: 'Creates a README.md file for your project'
+            )} for more details\n${links._documentation}`
         };
+
+        let commandsAnDescription = ``;
+        for (const cmd of commands) {
+            commandsAnDescription += `    ${cmd.data.name}: ${cmd.data.description}\n`;
+        }
 
         let helpMenu = `${texts._heading}
 ${texts._version}
 
 ${texts._commandWarning}
 
-        help: ${texts.help}
-        version: ${texts.version}
-        create: ${texts.create}
-        
+${commandsAnDescription}
 ${texts._documentation}`;
 
         console.log(helpMenu);

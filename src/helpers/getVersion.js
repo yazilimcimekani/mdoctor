@@ -1,7 +1,6 @@
-import fs from 'fs';
-const data = JSON.parse(fs.readFileSync('./package.json'));
+const ver = '1.0.0';
 
 export default function getVersion() {
-    let version = 'v' + data.version;
+    let version = 'v' + ver;
     return version;
 }
