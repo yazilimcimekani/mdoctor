@@ -1,16 +1,22 @@
 import commands from './commands.js';
 
+function getCommand(cmd) {
+    return commands.filter((command) => command.data.name === cmd)[0];
+}
+
 async function cli(args) {
-    args = args.slice(2);
-    if (args.length == 0) return;
+    if (args._.length !== 0) {
+        try {
+            getCommand(args._[0]).run(args);
+        } catch (error) {
+            console.log(`'${args._[0]}' is not a MDoctor command`);
+        }
+    }
 
-    let cmdName = args[0];
-    let command = commands.filter((f) => f.data.name == cmdName);
-
-    if (command[0]) return command[0].run();
-    else {
-        console.log(`'${cmdName}' is not a MDoctor command`);
-        process.exit(1);
+    if (args.version || args.v) {
+        return getCommand('version').run();
+    } else if (args.help || args.h) {
+        return getCommand('help').run();
     }
 }
 
