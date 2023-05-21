@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "inquirer": "^9.2.3"
+    "inquirer": "^9.2.3",
+    "yargs-parser": "^21.1.1"
   }
 }
