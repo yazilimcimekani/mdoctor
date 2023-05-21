@@ -9,11 +9,11 @@ ${Markdown.Heading(2, 'Installation')}
 
 ${Markdown.Heading(3, 'Clone')}
 
-${Markdown.CodeBlock(clone_url, 'shell')}
+${Markdown.CodeBlock('git clone ' + clone_url, 'shell')}
 
 ${Markdown.Heading(3, 'Install')}
 
-${Markdown.CodeBlock('git clone ' + install_command, 'shell')}
+${Markdown.CodeBlock(install_command, 'shell')}
 `;
 }
 
