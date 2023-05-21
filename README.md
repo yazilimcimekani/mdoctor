@@ -3,7 +3,7 @@
 Your CLI Markdown 👨‍⚕️ Doctor
 
 [![Code style: prettier](https://img.shields.io/badge/Code_Style-prettier-ff69b4.svg?style=flat&logo=prettier)](https://github.com/prettier/prettier)
-![Npm Downloads](https://img.shields.io/npm/dw/mdoctor?label=Downloads&logo=npm&logoColor=red)
+![Npm Downloads](https://img.shields.io/npm/dw/mdoctor?label=Downloads&logo=npm)
 ![Version](https://img.shields.io/npm/v/mdoctor?color=red&label=Version&logo=npm)
 
 ## Getting Started
@@ -16,19 +16,23 @@ If you have NodeJS environment you can basically install MDoctor with single `np
 npm install mdoctor --global
 ```
 
+## Creating README is so easy
+
+Just use `mdoctor create` command and answer the questions. That's it!
+
+```shell
+mdoctor create
+```
+
 ## Cli Commands
 
-- ### create
+All commands are prefixed with `mdoctor` or `markdown-doctor`.
 
-Creates a new markdown file with the given name. If no name is given, it will create a file named `README.md` in the current directory.
-
-- ### help
-
-Shows the help menu
-
-- ### version
-
-Shows the version of the package
+```md
+    create: Creates a README.md file for your project
+    help: Shows the help menu
+    version: Shows the app version
+```
 
 ## License
 

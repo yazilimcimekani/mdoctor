@@ -1,6 +1,6 @@
 {
   "name": "mdoctor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Your CLI Markdown Doctor",
   "main": "bin/mdoctor",
   "type": "module",
@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "inquirer": "^9.2.3",
+    "inquirer": "^9.2.5",
     "yargs-parser": "^21.1.1"
   }
 }
