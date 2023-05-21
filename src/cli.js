@@ -5,7 +5,7 @@ function getCommand(cmd) {
 }
 
 async function cli(args) {
-    if (args._.length !== 0) {
+    function runCommand() {
         try {
             getCommand(args._[0]).run(args);
         } catch (error) {
@@ -13,9 +13,13 @@ async function cli(args) {
         }
     }
 
-    if (args.version || args.v) {
+    if (args._.length !== 0) {
+        return runCommand();
+    }
+
+    if (args.version) {
         return getCommand('version').run();
-    } else if (args.help || args.h) {
+    } else if (args.help) {
         return getCommand('help').run();
     }
 }
