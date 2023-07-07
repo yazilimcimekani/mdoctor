@@ -3,6 +3,6 @@
     "tabWidth": 4,
     "useTabs": false,
     "trailingComma": "none",
-    "endOfLine": "crlf",
+    "endOfLine": "auto",
     "singleQuote": true
 }
