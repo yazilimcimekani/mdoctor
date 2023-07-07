@@ -7,8 +7,7 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:security/recommended',
-        'prettier',
-        'plugin:jest/recommended'
+        'prettier'
     ],
     overrides: [],
     parserOptions: {
