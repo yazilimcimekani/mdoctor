@@ -8,6 +8,11 @@ import (
 )
 
 func LoadFile(filePath string) string {
+	fileExtension := filePath[len(filePath)-3:]
+	if fileExtension != ".md" {
+		log.Fatal("File must be a markdown file")
+	}
+
 	dir, expandErr := homedir.Expand(filePath)
 	if expandErr != nil {
 		log.Fatal(expandErr)
