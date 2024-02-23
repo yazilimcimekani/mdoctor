@@ -8,7 +8,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func Version(cmd *cobra.Command, args []string) {
+var cmdVersion = &cobra.Command{
+	Use:   "version",
+	Short: "Print the version of MDoctor",
+	Run:   CmdVersion,
+}
+
+func CmdVersion(cmd *cobra.Command, args []string) {
 	version, err := os.ReadFile("VERSION")
 
 	if err != nil {
@@ -16,4 +22,8 @@ func Version(cmd *cobra.Command, args []string) {
 	}
 	fmt.Printf("MDoctor %s\n", version)
 	os.Exit(0)
+}
+
+func init() {
+	rootCmd.AddCommand(cmdVersion)
 }
