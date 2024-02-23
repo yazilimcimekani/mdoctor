@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -9,8 +8,8 @@ import (
 )
 
 func Serve(cmd *cobra.Command, args []string) {
-	port, _ := cmd.Flags().GetInt("port")
+	port, _ := cmd.Flags().GetUint16("port")
 
-	server.Start(fmt.Sprintf("%d", port))
+	server.Start(port)
 	os.Exit(0)
 }

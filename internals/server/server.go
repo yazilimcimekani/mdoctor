@@ -8,8 +8,11 @@ import (
 	"github.com/yazilimcimekani/mdoctor/internals/mdtohtml"
 )
 
-func Start(port string) {
-	var startMessage string = fmt.Sprintf("Server started on http://localhost:%s", port)
+func Start(port uint16) {
+	if port == 0 {
+		port = 8080
+	}
+	var startMessage string = fmt.Sprintf("Server started on http://localhost:%d", port)
 
 	// Define the routes
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
@@ -17,7 +20,7 @@ func Start(port string) {
 
 	// Start the server with logging
 	log.Println(startMessage)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 
 	log.Println("Shutting down gracefully...")
 }
