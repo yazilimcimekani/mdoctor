@@ -8,7 +8,7 @@ import (
 	"github.com/yazilimcimekani/mdoctor/internals/mdtohtml"
 )
 
-func Start(port uint16) {
+func Start(port uint16, filePath string) {
 	if port == 0 {
 		port = 8080
 	}
@@ -16,7 +16,7 @@ func Start(port uint16) {
 
 	// Define the routes
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
-	http.HandleFunc("/", Markdown())
+	http.HandleFunc("/", Markdown(filePath))
 
 	// Start the server with logging
 	log.Println(startMessage)
@@ -25,10 +25,12 @@ func Start(port uint16) {
 	log.Println("Shutting down gracefully...")
 }
 
-func Markdown() func(w http.ResponseWriter, r *http.Request) {
+func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
+
 	const mdTemplatePath = "views/md.html"
+	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadFile(filePath))
 	var html string = mdtohtml.LoadFile(mdTemplatePath)
-	fullHTML := fmt.Sprintf(html, mdtohtml.MarkdownToHtml(mdtohtml.LoadFile("README.md")))
+	fullHTML := fmt.Sprintf(html, markdownContent)
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(fullHTML))
