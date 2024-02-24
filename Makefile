@@ -1,8 +1,8 @@
 APP_NAME := "mdoctor"
 
-.PHONY: tidy run build clean clean-build
+.PHONY: tidy run build-all clean clean-build
 
-.DEFAULT_GOAL := build
+.DEFAULT_GOAL := clean-build
 
 tidy:
 	@go mod tidy
