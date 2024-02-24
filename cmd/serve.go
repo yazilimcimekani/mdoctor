@@ -21,7 +21,7 @@ var cmdServe = &cobra.Command{
 func CmdServe(cmd *cobra.Command, args []string) {
 	if len(args) == 0 {
 		args = append(args, "README.md")
-	} else if len(args[0]) < 3 {
+	} else if len([]rune(args[0])) < 3 {
 		log.Fatal("File must be a markdown file")
 	}
 	server.Start(port, args[0])

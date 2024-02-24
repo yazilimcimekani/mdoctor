@@ -10,7 +10,7 @@ import (
 func LoadFile(filePath string) string {
 	if filePath == "" {
 		filePath = "README.md"
-	} else if len(filePath) < 3 || filePath[len(filePath)-3:] != ".md" {
+	} else if len([]rune(filePath)) < 3 || filePath[len([]rune(filePath))-3:] != ".md" {
 		log.Fatal("File must be a markdown file")
 	}
 
