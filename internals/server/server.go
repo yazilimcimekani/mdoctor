@@ -20,16 +20,19 @@ func Start(port uint16, filePath string) {
 
 	// Start the server with logging
 	log.Println(startMessage)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	log.Println("Shutting down gracefully...")
 }
 
 func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
-
 	const mdTemplatePath = "views/md.html"
+
 	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadFile(filePath))
-	var html string = mdtohtml.LoadFile(mdTemplatePath)
+	html := mdtohtml.LoadFile(mdTemplatePath)
 	fullHTML := fmt.Sprintf(html, markdownContent)
 
 	return func(w http.ResponseWriter, r *http.Request) {
