@@ -32,7 +32,7 @@ func Start(port uint16, filePath string) {
 func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
 	const mdTemplatePath = "views/md.html"
 
-	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadFile(filePath))
+	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadMdFile(filePath))
 	html, htmlReadErr := os.ReadFile(mdTemplatePath)
 	if htmlReadErr != nil {
 		log.Fatal(htmlReadErr)

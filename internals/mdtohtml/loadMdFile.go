@@ -7,7 +7,7 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 )
 
-func LoadFile(filePath string) string {
+func LoadMdFile(filePath string) string {
 	if filePath == "" {
 		filePath = "README.md"
 	} else if len([]rune(filePath)) < 3 || filePath[len([]rune(filePath))-3:] != ".md" {
