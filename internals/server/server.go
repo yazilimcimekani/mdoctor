@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/yazilimcimekani/mdoctor/internals/mdtohtml"
 )
@@ -32,8 +33,11 @@ func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
 	const mdTemplatePath = "views/md.html"
 
 	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadFile(filePath))
-	html := mdtohtml.LoadFile(mdTemplatePath)
-	fullHTML := fmt.Sprintf(html, markdownContent)
+	html, htmlReadErr := os.ReadFile(mdTemplatePath)
+	if htmlReadErr != nil {
+		log.Fatal(htmlReadErr)
+	}
+	fullHTML := fmt.Sprintf(string(html), markdownContent)
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(fullHTML))
