@@ -21,7 +21,6 @@ func CmdVersion(cmd *cobra.Command, args []string) {
 		log.Fatal(err)
 	}
 	fmt.Printf("MDoctor %s\n", version)
-	os.Exit(0)
 }
 
 func init() {

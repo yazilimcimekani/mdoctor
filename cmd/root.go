@@ -1,8 +1,6 @@
 package cmd
 
 import (
-	"os"
-
 	"github.com/spf13/cobra"
 )
 
@@ -17,7 +15,6 @@ var rootCmd = &cobra.Command{
 func CmdRoot(cmd *cobra.Command, args []string) {
 	if versionFlag {
 		CmdVersion(cmd, args)
-		os.Exit(0)
 	}
 	cmd.Help()
 }
