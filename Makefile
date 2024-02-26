@@ -26,5 +26,6 @@ build-all: build-linux build-macos build-windows
 
 clean:
 	@rm -rf bin
+	@rm -rf dist
 
 clean-build: clean build-all
