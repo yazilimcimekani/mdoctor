@@ -1,8 +1,0 @@
-node_modules
-.github
-package*.json
-LICENSE
-*.md
-.prettierrc.json
-.prettier-ignore
-babel.config.json
