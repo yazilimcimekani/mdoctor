@@ -64,6 +64,9 @@ func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
 	fullHTML := fmt.Sprintf(string(html), markdownContent)
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(fullHTML))
+		_, err := w.Write([]byte(fullHTML))
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }

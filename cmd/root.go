@@ -16,7 +16,10 @@ func CmdRoot(cmd *cobra.Command, args []string) {
 	if versionFlag {
 		CmdVersion(cmd, args)
 	}
-	cmd.Help()
+	err := cmd.Help()
+	if err != nil {
+		panic(err)
+	}
 }
 
 func init() {
@@ -24,5 +27,8 @@ func init() {
 }
 
 func Execute() {
-	rootCmd.Execute()
+	err := rootCmd.Execute()
+	if err != nil {
+		panic(err)
+	}
 }
