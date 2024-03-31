@@ -2,8 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
-	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -15,11 +13,7 @@ var cmdVersion = &cobra.Command{
 }
 
 func CmdVersion(cmd *cobra.Command, args []string) {
-	version, err := os.ReadFile("VERSION")
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	version := "1.0.0"
 	fmt.Printf("MDoctor %s\n", version)
 }
 
