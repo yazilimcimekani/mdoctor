@@ -14,6 +14,7 @@ import (
 )
 
 func Start(port uint16, filePath string) {
+	// Default port is 8080
 	if port == 0 {
 		port = 8080
 	}
@@ -54,13 +55,8 @@ func Start(port uint16, filePath string) {
 }
 
 func Markdown(filePath string) func(w http.ResponseWriter, r *http.Request) {
-	const mdTemplatePath = "internals/server/views/md.html"
-
+	html := Html()
 	markdownContent := mdtohtml.MarkdownToHtml(mdtohtml.LoadMdFile(filePath))
-	html, htmlReadErr := os.ReadFile(mdTemplatePath)
-	if htmlReadErr != nil {
-		log.Fatal(htmlReadErr)
-	}
 	fullHTML := fmt.Sprintf(string(html), markdownContent)
 
 	return func(w http.ResponseWriter, r *http.Request) {
