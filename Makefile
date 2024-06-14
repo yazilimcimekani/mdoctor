@@ -1,6 +1,6 @@
 APP_NAME := "mdoctor"
 
-.PHONY: tidy run build-all clean clean-build
+.PHONY: tidy run build-all clean clean-build format format-check
 
 .DEFAULT_GOAL := clean-build
 
@@ -29,3 +29,9 @@ clean:
 	@rm -rf dist
 
 clean-build: clean build-all
+
+format:
+	@gofmt -w ./
+
+format-check:
+	@gofmt -l ./
